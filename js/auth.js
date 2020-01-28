@@ -13,6 +13,8 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+
+
 function login(email, password){
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here.
@@ -20,4 +22,27 @@ function login(email, password){
         var errorMessage = error.message;
         alert(error)
     });
+}
+
+function uploadReservationInfo(name,ph,email,checkIn, checkOut,adults,childs,notes){
+    let db = firebase.database()
+    user = getUser()
+    if(user){
+        var uid = user.uid
+    }
+    db.ref('/reservations/'+uid).push({
+        name: name,
+        ph: ph,
+        email: email,
+        checkIn: checkIn || '0',
+        checkOut:checkOut || '0',
+        adults:adults || '0',
+        childs: childs || '0',
+        notes: notes || '0'
+    })
+}
+
+
+function getUser(){
+    return firebase.auth().currentUser
 }
