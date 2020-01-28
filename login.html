@@ -133,22 +133,12 @@
                 <input type="text" placeholder="email address" />
                 <button>create</button>
                 <p class="message">Already registered? <a href="#">Sign In</a></p>
-<<<<<<< HEAD
-              </form>
-              <form class="login-form">
-                <input type="text" placeholder="username"/>
-                <input type="password" placeholder="password"/>
-                <button>login</button>
-                <p class="message">Not registered? <a href="signin.html">Create an account</a></p>
-              </form>
-=======
             </div>
             <div class="login-form">
                 <input name="uname" type="text" placeholder="username" />
                 <input name="pswd" type="password" placeholder="password" />
                 <button onclick="signin()">login</button>
-                <p class="message">Not registered? <a href="#">Create an account</a></p>
->>>>>>> 971322251bd4769d4e12d61ad4dc1d7cf2bee051
+                <p class="message">Not registered? <a href="signin.html">Create an account</a></p>
             </div>
         </div>
     </div>
@@ -168,7 +158,7 @@
             let uname = document.querySelector('input[name=uname]')
             let password = document.querySelector('input[name=pswd]')
 
-            login(uname, password)
+            login(uname.value, password.value)
         }
     </script>
 </body>
